@@ -41,7 +41,7 @@
     "containerDefinitions": [
         {
             "name": "db",
-            "image": "mattermost/mattermost-prod-db:latest",
+            "image": "110916805156.dkr.ecr.ap-south-1.amazonaws.com/mm-team-db:latest",
             "memory": 128,
             "essential": true,
             "mountPoints": [
@@ -65,7 +65,7 @@
         },
         {
             "name": "app",
-            "image": "mattermost/mattermost-prod-app:latest",
+            "image": "110916805156.dkr.ecr.ap-south-1.amazonaws.com/mm-team-app:latest",
             "memory": 128,
             "essential": true,
             "mountPoints": [
@@ -92,7 +92,7 @@
         },
         {
             "name": "web",
-            "image": "mattermost/mattermost-prod-web:5.9.0",
+            "image": "110916805156.dkr.ecr.ap-south-1.amazonaws.com/mm-team-web:latest",
             "memory": 128,
             "essential": true,
             "mountPoints": [
