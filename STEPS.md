@@ -1,4 +1,4 @@
-# Step-1 [One-time step to prepare docker images]
+# [Step-1: One-time step to prepare docker images](https://github.com/kapeed2091/mattermost-docker/commit/b4c7fd67e64d8f634c5f12a944e27d335101383c)
 * Make changes in docker-compose.yml to build Mattermost TEAM edition
 * mkdir -p ./volumes/app/mattermost/{data,logs,config,plugins}
 * chown -R 2000:2000 ./volumes/app/mattermost/
@@ -8,7 +8,7 @@
 	* Runs docker containers
 * Push images to Amazon ECR
 
-# Step-2 [Deploy to Elastic Beanstalk]
+# [Step-2: Deploy to Elastic Beanstalk](https://github.com/kapeed2091/mattermost-docker/commit/82329c1ec1020e81e336417cc486d6188e3fd145)
 * chmod 777 contrib/aws/app/mattermost/config/config.json
 * Go to AWS-ElasticBeanstalk
 * Create a new environment
@@ -23,18 +23,18 @@
 		* Modify load balancer: Classic load balancer
 		* Modify security: Select EC2 key pair
 
-# Step-3 [Setup AWS Aurora-Serverless]
+# [Step-3: Setup AWS Aurora-Serverless](https://github.com/kapeed2091/mattermost-docker/commit/358902e1e686da5e4e707ef553af77680ee9886c)
 * Set Elastic Beanstalk environment variables
 	* MM_SQLSETTINGS_DRIVERNAME: mysql
 	* MM_SQLSETTINGS_DATASOURCE: {USERNAME}:{PASSWORD}@tcp(HOST:PORT)/{DB_NAME}?writeTimeout=30s&readTimeout=30s
 
 * Setting these environment variables makes Mattermost access the specified DB
 
-# Step-4 [Allow network traffic for Web Socket connection]
+# [Step-4: Allow network traffic for Web Socket connection](https://github.com/kapeed2091/mattermost-docker/commit/d5153bf298b1b7b44616a41fe59d48bf18370290)
 * In Elastic Beanstalk, modify load balancer. In previous step we have chosen classic load balancer
 	* Modify from 80:HTTP to 80:TCP
 
-# Step-5 [Set config]
+# [Step-5: Set config](https://github.com/kapeed2091/mattermost-docker/commit/5c3f227d316296af05a0a7d4cf5321fd729af164)
 * Set other relevant environment variables
 	* MM_SERVICESETTINGS_SITEURL
 	* MM_SERVICESETTINGS_WEBSOCKETURL
@@ -50,7 +50,7 @@
 	* MM_SUPPORTSETTINGS_REPORTAPROBLEMLINK
 	* MM_SUPPORTSETTINGS_SUPPORTEMAIL
 
-# Step-6 [Email related settings]
+# [Step-6: Email related settings](https://github.com/kapeed2091/mattermost-docker/commit/64ac691dc121049e57882bb63b5ad5f291c0f98f)
 * Set environment variables related to Email
 	* MM_EMAILSETTINGS_FEEDBACKNAME
 	* MM_EMAILSETTINGS_FEEDBACKEMAIL
@@ -63,7 +63,7 @@
 	* MM_EMAILSETTINGS_SMTPPORT: 465
 	* MM_EMAILSETTINGS_CONNECTIONSECURITY: TLS
 
-# Step-7 [File storage settings]
+# [Step-7: File storage settings](https://github.com/kapeed2091/mattermost-docker/commit/2469deb7d538cf0f14fdd5b54b66665cae547b3a)
 * Set environment variables related to File storage
 	* MM_FILESETTINGS_DRIVERNAME: amazons3
 	* MM_FILESETTINGS_AMAZONS3ACCESSKEYID
@@ -71,10 +71,10 @@
 	* MM_FILESETTINGS_AMAZONS3BUCKET
 	* MM_FILESETTINGS_AMAZONS3REGION
 
-# Step-8 [Remove db container]
+# [Step-8: Remove db container](https://github.com/kapeed2091/mattermost-docker/commit/ec2843fc31db4d8d3c34042d7206d1ab900936b7)
 * As we no longer need db container, we remove it from the configuration file
 
-# Step-9 [TLS + Custom Domain]
+# [Step-9: TLS + Custom Domain](https://github.com/kapeed2091/mattermost-docker/commit/7fe54f667c944987d4d4cfc833bf2c0e35284b70)
 * Add custom domain in Route53 (Ex: monthint.in)
 * Generate certificates with LetsEncrypt for the domain name (Ex: *.monthint.in)
 * Add files 'cert.pem' (fullchain.pem from LetsEncrypt), 'key-no-password.pem' (privkey.pem from LetsEncrypt) to contrib/aws/web/cert folder
