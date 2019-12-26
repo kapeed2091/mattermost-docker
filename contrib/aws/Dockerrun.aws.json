@@ -40,30 +40,6 @@
     ],
     "containerDefinitions": [
         {
-            "name": "db",
-            "image": "110916805156.dkr.ecr.ap-south-1.amazonaws.com/mm-team-db:latest",
-            "memory": 128,
-            "essential": true,
-            "mountPoints": [
-                {
-                    "sourceVolume": "db-data",
-                    "containerPath": "/var/lib/postgresql/data"
-                }
-            ],
-            "environment": [
-              {
-                "name": "POSTGRES_USER",
-                "value": "mmuser"
-              }, {
-                "name": "POSTGRES_PASSWORD",
-                "value": "mmuser_password"
-              }, {
-                "name": "POSTGRES_DB",
-                "value": "mattermost"
-              }
-            ]
-        },
-        {
             "name": "app",
             "image": "110916805156.dkr.ecr.ap-south-1.amazonaws.com/mm-team-app:latest",
             "memory": 128,
@@ -85,9 +61,6 @@
                     "sourceVolume": "app-plugins",
                     "containerPath": "/mattermost/plugins"
                 }
-            ],
-            "links": [
-                "db"
             ]
         },
         {

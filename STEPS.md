@@ -70,3 +70,6 @@
 	* MM_FILESETTINGS_AMAZONS3SECRETACCESSKEY
 	* MM_FILESETTINGS_AMAZONS3BUCKET
 	* MM_FILESETTINGS_AMAZONS3REGION
+
+# Step-8 [Remove db container]
+* As we no longer need db container, we remove it from the configuration file
