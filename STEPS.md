@@ -73,3 +73,13 @@
 
 # Step-8 [Remove db container]
 * As we no longer need db container, we remove it from the configuration file
+
+# Step-9 [TLS + Custom Domain]
+* Add custom domain in Route53 (Ex: monthint.in)
+* Generate certificates with LetsEncrypt for the domain name (Ex: *.monthint.in)
+* Add files 'cert.pem' (fullchain.pem from LetsEncrypt), 'key-no-password.pem' (privkey.pem from LetsEncrypt) to contrib/aws/web/cert folder
+* Add EBS URL to Route53 (Name: ibchat.monthint.in --> IPV4 Address Alias of EBS URL)
+* Modify EBS load balancer to allow network traffic for port 443 (TCP:443)
+* Modify environment variables MM_SERVICESETTINGS_SITEURL (Ex: https://ibchat.monthint.in), MM_SERVICESETTINGS_WEBSOCKETURL (Ex: wss://ibchat.monthint.in)
+
+* LetsEncrypt certificates have to be renewed periodically
