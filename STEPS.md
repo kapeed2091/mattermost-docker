@@ -8,7 +8,7 @@
 	* Runs docker containers
 * Push images to Amazon ECR
 
-# Step-2
+# Step-2 [Deploy to Elastic Beanstalk]
 * chmod 777 contrib/aws/app/mattermost/config/config.json
 * Go to AWS-ElasticBeanstalk
 * Create a new environment
@@ -34,3 +34,18 @@
 * In Elastic Beanstalk, modify load balancer. In previous step we have chosen classic load balancer
 	* Modify from 80:HTTP to 80:TCP
 
+# Step-5 [Set config]
+* Set other relevant environment variables
+	* MM_SERVICESETTINGS_SITEURL
+	* MM_SERVICESETTINGS_WEBSOCKETURL
+	* MM_SERVICESETTINGS_ENABLEEMAILINVITATIONS: true
+	* MM_TEAMSETTINGS_SITENAME
+	* MM_TEAMSETTINGS_ENABLECUSTOMBRAND: true
+	* MM_TEAMSETTINGS_CUSTOMBRANDTEXT
+	* MM_TEAMSETTINGS_CUSTOMDESCRIPTIONTEXT
+	* MM_SUPPORTSETTINGS_TERMSOFSERVICELINK
+	* MM_SUPPORTSETTINGS_PRIVACYPOLICYLINK
+	* MM_SUPPORTSETTINGS_ABOUTLINK
+	* MM_SUPPORTSETTINGS_HELPLINK
+	* MM_SUPPORTSETTINGS_REPORTAPROBLEMLINK
+	* MM_SUPPORTSETTINGS_SUPPORTEMAIL
