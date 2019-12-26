@@ -22,4 +22,10 @@
 			* Instance type: micro
 		* Modify load balancer: Classic load balancer
 		* Modify security: Select EC2 key pair
-	
+
+# Step-3 [Setup AWS Aurora-Serverless]
+* Set Elastic Beanstalk environment variables
+	* MM_SQLSETTINGS_DRIVERNAME: mysql
+	* MM_SQLSETTINGS_DATASOURCE: {USERNAME}:{PASSWORD}@tcp(HOST:PORT)/{DB_NAME}?writeTimeout=30s&readTimeout=30s
+
+* Setting these environment variables makes Mattermost access the specified DB	
