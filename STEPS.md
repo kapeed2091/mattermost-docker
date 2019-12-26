@@ -28,4 +28,9 @@
 	* MM_SQLSETTINGS_DRIVERNAME: mysql
 	* MM_SQLSETTINGS_DATASOURCE: {USERNAME}:{PASSWORD}@tcp(HOST:PORT)/{DB_NAME}?writeTimeout=30s&readTimeout=30s
 
-* Setting these environment variables makes Mattermost access the specified DB	
+* Setting these environment variables makes Mattermost access the specified DB
+
+# Step-4 [Allow network traffic for Web Socket connection]
+* In Elastic Beanstalk, modify load balancer. In previous step we have chosen classic load balancer
+	* Modify from 80:HTTP to 80:TCP
+
