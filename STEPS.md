@@ -1,3 +1,10 @@
+# Step-0: Setting up base repo to begin with 
+* git clone https://github.com/kapeed2091/mattermost-docker.git
+* cd mattermost-docker
+* git checkout b9484f444424057434fd8c0a1c1a937154639857
+
+* We checkout to a previous version of code and make step-by-step changes as listed below
+
 # [Step-1: One-time step to prepare docker images](https://github.com/kapeed2091/mattermost-docker/commit/b4c7fd67e64d8f634c5f12a944e27d335101383c)
 * Make changes in docker-compose.yml to build Mattermost TEAM edition
 * mkdir -p ./volumes/app/mattermost/{data,logs,config,plugins}
