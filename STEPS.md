@@ -84,6 +84,10 @@
 # [Step-9: TLS + Custom Domain](https://github.com/kapeed2091/mattermost-docker/commit/7fe54f667c944987d4d4cfc833bf2c0e35284b70)
 * Add custom domain in Route53 (Ex: monthint.in)
 * Generate certificates with LetsEncrypt for the domain name (Ex: *.monthint.in)
+    * Sample command to generate certificates for monthint.in, *.monthint.in:
+```
+sudo certbot certonly --manual -d *.monthint.in -d monthint.in --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory
+```
 * Add files 'cert.pem' (fullchain.pem from LetsEncrypt), 'key-no-password.pem' (privkey.pem from LetsEncrypt) to contrib/aws/web/cert folder
 * Add EBS URL to Route53 (Name: ibchat.monthint.in --> IPV4 Address Alias of EBS URL)
 * Modify EBS load balancer to allow network traffic for port 443 (TCP:443)
